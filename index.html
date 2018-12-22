@@ -1,12 +1,27 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-  <title>Bana's Travel Blog</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="reset.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta charset="utf-8">
+    <title>Simple</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/loading.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="template/css/entry.css">
+    <link rel="stylesheet" type="text/css" href="template/css/prism.css">
+    <script src="lib/jquery.js"></script>
+    <script src="lib/underscore.js"></script>
+    <script src="lib/base64.js"></script>
+    <script src="lib/github.js"></script>
+    <script src="lib/spine.js"></script>
+    <script src="lib/route.js"></script>
+    <script src="lib/manager.js"></script>
+    <script src="template/js/hogan.min.js"></script>
+    <script src="lib/showdown.js"></script>
+    <script src="template/js/prism.js"></script>
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <script src="app.js"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
      style="display:block; text-align:center;"
      data-ad-layout="in-article"
@@ -18,33 +33,105 @@
 </script>
 </head>
 <body>
-  <div id="banner">
-    <h1>Bana's Travel Blog</h1>
-  </div>
-  <div id="blog">
-    <div class="post">
-      <h2>Saturday Market</h2>
-      <h3>January 7th</h3>
-      <strong class="opening-line">On Saturday, Dilara took us to the market.</strong>
-      <p>It is a wonderfully eclectic mix of goods from all over the world - delightfully random. I dusted off my bargaining skills to buy a metal bracelet with camels on it, and Maggie bought a lapis lazuli necklace from Afghanistan. In the evening, we walked along Gulf Road towards the marina, passed through Marina Mall, and ate dinner at a wonderful little cafe that we will definitely be frequenting. Ive developed a slight obsession with lentil soul... maybe its because I miss Focos Indian lentil chili.</p>
-      <div class="image-container">
-        <img src="market.jpg" />
-      </div>
-      <p>We took a catamaran from the marina to Failaka Island, where we got to explore a bit, relax on the beach, and go swimming. The water in the Gulf is incredibly still; I havent seen a wave yet, and when you look out on the horizon it seems to go forever. Something about the color of the water and maybe the dust in the air make it seem hazier than the Atlantic coast. I have some cool pictures of the city skyline as we returned on the boat.</p>
-      <p>That night, I hung out in a cafe with two friends, drinking traditional lemonade with mint. Its delicious; maybe I should send in a flavor suggestion to Morano Gelato? Then we drove around the city for a while. Cruising around is a really valid way to spend the time when a tank of gas costs about seven bucks. </p>
+<div class="container">
+<div id="views">
+    <div id="login">
+        <a id="fork" href="https://github.com/isnowfy/simple" target="_blank"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label>Github username</label>
+                <div>
+                    <input type="text" name="user" class="form-control" id="loginuser">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <div>
+                    <input type="password" name="pass" class="form-control" id="loginpass">
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <input type="submit" class="btn btn-default" value="Sign in" id="loginsubmit">
+                    <span class="label label-danger" id="loginerror" style="display: none;">Something error!</span>
+                </div>
+            </div>
+        </form>
     </div>
-    <div class="images">
-      <div class="image-container">
-        <img src="camel.jpg" />
-      </div><!--
-      Adding comment to ensure no whitespace between inline-block div elements from HTML file.
-      --><div class="image-container">
-        <img src="map.png" />
-      </div>
+    <div id="main">
+        <div class="block">
+        <h2>Create a repository</h2>
+        <p>Head over to <a href="https://github.com">GitHub</a> and <a href="https://github.com/new">create a new repository</a> named username.github.io, where username is your username on GitHub.(Please selected the "<span style="color:red">Initialize this repository with a README</span>" when creating the repo.)</p>
+        </div>
+        <div class="block">
+        <h2>Initialize the repository (just the first)</h2>
+        <p><a class="btn btn-primary" id="init">Initialize</a></p>
+        <p><span class="label label-danger" id="initerror" style="display: none;">Error! Please try again!</span></p>
+        <p><span class="label label-success" id="initok" style="display: none;">Initialzition has completed!</span></p>
+        </div>
+        <div class="block">
+        <h2>Go to write</h2>
+        <p>If you had initialized the repository you can go to next page directly.</p>
+        <p><a class="btn btn-primary" id="go">Go</a></p>
+        </div>
+        </p>
     </div>
-  </div>
-  <footer>
-    <span>&copy; Banas Travel Blog</span>
-  </footer>
+    <div id="posts" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-3 sidebar">
+                <a class="nav-btn btn btn-default" href="#/posts/newpost">New post</a>
+                <ul class="nav nav-sidebar" id="postItems">
+                </ul>
+                <a class="nav-btn btn btn-default" href="#/posts/newpage">New page</a>
+                <ul class="nav nav-sidebar" id="pageItems">
+                </ul>
+            </div>
+            <div class="post-content col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3">
+                <div class="post-wrap-header">
+                <div class="page-header">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="posttitle" placeholder="Title">
+                            <input type="text" class="form-control" id="postpath" placeholder="Url like intro.html">
+                            <input type="text" class="form-control" id="postdate" placeholder="2014-02-01">
+                            <input type="text" class="form-control" id="posttags" placeholder="Tags split with space">
+                            <a class="btn btn-default" href="#/posts/savepost" id="postSave">save</a>
+                            <a class="btn btn-danger" href="#" id="postDelete">delete</a>
+                            <span class="label label-danger" style="display:none;" id="saveerror">Save error</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="post-wrap-edit">
+                <div id="editContent">
+                    <textarea id="editmd"></textarea>
+                    <div id="edithtml" class="entry"></div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="loading" style="display: none;">
+    <div class="spinner">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+    </div>
+</div>
+</div>
+<script id="postsItem" type="text/mustache">
+{{#items}}
+{{#active}}
+<li class="nav-active">
+{{/active}}
+{{^active}}
+<li>
+{{/active}}
+    <a href="#/posts/{{type}}/{{num}}">{{title}}</a>
+</li>
+{{/items}}
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true } });
+</script>
 </body>
-</html>
