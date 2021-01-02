@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="Keywords" content="blog" />
     <meta name="Description" content="blog" />
-    <title>Simple</title>
+    <title>cdbenly</title>
     <link rel="shortcut icon" href="/static/favicon.png" />
     <link rel="stylesheet" type="text/css" href="main.css" />
     <style>
@@ -37,12 +37,12 @@
         </h1>
       </div>
       <div class="innermain" id="main">
-          <div class="dating-timer">
-            <p id="demo"></p>
-          </div>
+        <div class="dating-timer">
+          <p id="demo"></p>
+        </div>
       </div>
       <div class="footer">
-        <p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+        <p>© Copyright 2020 by #cdbenly</p>
       </div>
     </div>
     <script>
@@ -64,11 +64,20 @@
         );
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        var years =  parseFloat(days / 365).toFixed(2);
+        var years = parseFloat(days / 365).toFixed(2);
 
         // Output the result in an element with id="demo"
         document.getElementById("demo").innerHTML =
-          years + " years " + days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds ";
+          years +
+          " years " +
+          days +
+          " days " +
+          hours +
+          " hours " +
+          minutes +
+          " minutes " +
+          seconds +
+          " seconds ";
 
         // If the count down is over, write some text
         if (distance < 0) {
