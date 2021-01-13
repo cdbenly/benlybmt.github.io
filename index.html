@@ -42,6 +42,7 @@
       <div class="innermain main-content" id="main">
         <div class="dating-timer">
           <p id="demo"></p>
+          <p id="demo2"></p>
         </div>
       </div>
       <div class="footer">
@@ -49,10 +50,8 @@
       </div>
     </div>
     <script>
-      // Set the date we're counting down to
-      var countDownDate = new Date("Sep 27, 2015 18:00:00").getTime();
-
-      // Update the count down every 1 second
+      function CountDate(countDownDate, elementId) {
+        // Update the count down every 1 second
       var x = setInterval(function () {
         // Get today's date and time
         var now = new Date().getTime();
@@ -70,7 +69,7 @@
         var years = parseFloat(days / 365).toFixed(2);
 
         // Output the result in an element with id="demo"
-        document.getElementById("demo").innerHTML =
+        document.getElementById(elementId).innerHTML =
           years +
           " years " +
           days +
@@ -85,9 +84,16 @@
         // If the count down is over, write some text
         if (distance < 0) {
           clearInterval(x);
-          document.getElementById("demo").innerHTML = "EXPIRED";
+          document.getElementById(elementId).innerHTML = "EXPIRED";
         }
       }, 1000);
+      }
+      // Set the date we're counting down to
+      var countDownDate = new Date("Sep 27, 2015 18:00:00").getTime();
+      var countDownDate2 = new Date("Sep 16, 2014 7:00:00").getTime();
+
+      CountDate(countDownDate, "demo");
+      CountDate(countDownDate2, "demo2");
     </script>
     <script src="main.js"></script>
     <script id="itemTemplate" type="text/mustache">
