@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* Universal Styles */
 
 html {
@@ -22,7 +25,7 @@ body {
 
 #banner {
   height: 46rem;
-  background-image: url('camel-background.png');
+  background-image: url("camel-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -34,7 +37,7 @@ body {
 
 #banner h1 {
   font-size: 3.75rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
   color: white;
 }
@@ -56,7 +59,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Merriweather', serif;
+  font-family: "Merriweather", serif;
   font-weight: 300;
   font-size: 1rem;
   text-align: center;
@@ -106,7 +109,7 @@ body {
 footer {
   padding: 4rem 0;
   border-top: 1px solid #999999;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1.125rem;
   color: #999999;
   text-align: center;

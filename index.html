@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="Keywords" content="blog" />
     <meta name="Description" content="blog" />
-    <title>cdbenly  </title>
+    <title>cdbenly</title>
     <link rel="shortcut icon" href="/static/favicon.png" />
     <link rel="stylesheet" type="text/css" href="main.css" />
+    <link href="output.css" rel="stylesheet" />
     <style>
       .dating-timer p {
         text-align: center;
@@ -18,84 +19,52 @@
         height: 600px;
       }
     </style>
-    <script data-ad-client="ca-pub-2785729858615168" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script
+      data-ad-client="ca-pub-2785729858615168"
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
   </head>
   <body>
     <div class="main">
       <div class="header">
-        <ul id="pages">
-          <li>
-            <a href="/">home</a>
-          </li>
-          <li>
-            <a href="/#/tags">tags</a>
-          </li>
-          <li>
-            <a href="/#/archive">archive</a>
-          </li>
-        </ul>
       </div>
       <div class="wrap-header">
-        <h1>
-          <a href="/" id="title"></a>
-        </h1>
       </div>
       <div class="innermain main-content" id="main">
         <div class="dating-timer">
-          <p id="demo"></p>
-          <p id="demo2"></p>
+          <ul>
+            <li><span id="years1"></span>years</li>
+            <li><span id="days1"></span>days</li>
+            <li><span id="hours1"></span>Hours</li>
+            <li><span id="minutes1"></span>Minutes</li>
+            <li><span id="seconds1"></span>Seconds</li>
+          </ul>
+          <div id="event2">
+            <ul>
+              <li><span id="years2"></span>years</li>
+              <li><span id="days2"></span>days</li>
+              <li><span id="hours2"></span>Hours</li>
+              <li><span id="minutes2"></span>Minutes</li>
+              <li><span id="seconds2"></span>Seconds</li>
+            </ul>
+          </div>
+          <div id="event3">
+            <ul>
+              <li><span id="years3"></span>years</li>
+              <li><span id="days3"></span>days</li>
+              <li><span id="hours3"></span>Hours</li>
+              <li><span id="minutes3"></span>Minutes</li>
+              <li><span id="seconds3"></span>Seconds</li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="footer">
         <p>© Copyright 2020 by #cdbenly</p>
       </div>
     </div>
-    <script>
-      function CountDate(countDownDate, elementId) {
-        // Update the count down every 1 second
-      var x = setInterval(function () {
-        // Get today's date and time
-        var now = new Date().getTime();
-
-        // Find the distance between now and the count down date
-        var distance = now - countDownDate;
-
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        var years = parseFloat(days / 365).toFixed(2);
-
-        // Output the result in an element with id="demo"
-        document.getElementById(elementId).innerHTML =
-          years +
-          " years " +
-          days +
-          " days " +
-          hours +
-          " hours " +
-          minutes +
-          " minutes " +
-          seconds +
-          " seconds ";
-
-        // If the count down is over, write some text
-        if (distance < 0) {
-          clearInterval(x);
-          document.getElementById(elementId).innerHTML = "EXPIRED";
-        }
-      }, 1000);
-      }
-      // Set the date we're counting down to
-      var countDownDate = new Date("Sep 27, 2015 18:00:00").getTime();
-      var countDownDate2 = new Date("Sep 16, 2014 7:00:00").getTime();
-
-      CountDate(countDownDate, "demo");
-      CountDate(countDownDate2, "demo2");
-    </script>
+    <script src="counter.js"></script>
     <script src="main.js"></script>
     <script id="itemTemplate" type="text/mustache">
       {{#posts}}
