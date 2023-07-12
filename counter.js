@@ -46,9 +46,9 @@ function CountDate(countDownDate, elementId) {
 var countDownDate = new Date("Sep 27, 2015 18:00:00").getTime();
 var countDownDate2 = new Date("Sep 16, 2014 7:00:00").getTime();
 var countDownDate3 = new Date("Mar 23, 2022 8:00:00").getTime();
-
+var countDownDate4 = new Date("July 6, 2022 10:35:00").getTime();
 
 CountDate(countDownDate, "1");
 CountDate(countDownDate2, "2");
 CountDate(countDownDate3, "3");
-
+CountDate(countDownDate4, "4");
